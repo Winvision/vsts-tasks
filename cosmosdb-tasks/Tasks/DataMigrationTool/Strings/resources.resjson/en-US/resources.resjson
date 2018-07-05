@@ -1,0 +1,18 @@
+{
+  "loc.friendlyName": "Cosmos Data Migration Tool",
+  "loc.helpMarkDown": "[More Information](https://tfs.winvision.nl/Winvision/Library/_git/Winvision.Vsts.Tasks?path=%2FREADME.md)",
+  "loc.description": "Runs the data migration tool",
+  "loc.instanceNameFormat": "Cosmos Data Migration Tool",
+  "loc.group.displayName.sourceSettings": "Source settings",
+  "loc.group.displayName.destinationSettings": "Destination settings",
+  "loc.group.displayName.versionSettings": "Version settings",
+  "loc.input.label.versionSpec": "Version Spec",
+  "loc.input.help.versionSpec": "Version Spec of version to get. Examples: 1.7.0",
+  "loc.input.label.sourceType": "Source Type",
+  "loc.input.help.sourceType": "Source type for data migration",
+  "loc.input.label.jsonFiles": "Json files",
+  "loc.input.help.jsonFiles": "One or more file search patterns to read JSON from.",
+  "loc.input.label.jsonDecompress": "Decompress",
+  "loc.input.help.jsonDecompress": "Optional. If source files should be decompressed with GZip",
+  "loc.messages.Info_UsingToolPath": "Using tool path: %s"
+}

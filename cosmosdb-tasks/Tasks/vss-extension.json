@@ -1,0 +1,54 @@
+{
+    "manifestVersion": 1,
+    "id": "winvisionbv-cosmosdb-tasks",
+    "name": "Tasks for Cosmos DB",
+    "publisher": "winvision-bv",
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],
+    "description": "A build and release extension containing Cosmos DB related tasks.",
+    "categories": [
+        "Build and release"
+    ],
+    "tags": [
+        "cosmos db",
+        "document db",
+        "json"
+    ],
+    "icons": {
+        "default": "images/extension-icon.png"
+    },
+    "content": {
+        "details": {
+            "path": "overview.md"
+        }
+    },
+    "files": [
+        {
+            "path": "DataMigrationTool"
+        }
+    ],
+    "branding": {
+        "color": "rgb(202, 5, 56)",
+        "theme": "light"
+    },
+    "repository": {
+        "type": "git",
+        "uri": "https://github.com/Winvision/vsts-tasks"
+    },
+    "contributions": [
+        {
+            "id": "DataMigrationTool",
+            "description": "Cosmos DB Data Migration Tool",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "DataMigrationTool"
+            }
+        }
+    ]
+}
