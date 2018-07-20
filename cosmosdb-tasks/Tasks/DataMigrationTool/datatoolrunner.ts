@@ -135,7 +135,7 @@ function addDocumentDBDestinationParameters(tool: tr.ToolRunner){
     switch (destinationDocumentDBIndexingPolicyType){
         case 'inline': {
             if(destinationDocumentDBIndexingPolicy) {
-                tool.arg(`/t.IndexingPolicy:"${destinationDocumentDBIndexingPolicy}"`);
+                tool.arg(`/t.IndexingPolicy:${destinationDocumentDBIndexingPolicy}`);
             }
             break;
         }
@@ -146,7 +146,7 @@ function addDocumentDBDestinationParameters(tool: tr.ToolRunner){
                     return;
                 }
 
-                tool.arg(`/t.IndexingPolicyFile:"${destinationDocumentDBIndexingPolicyFile}"`);
+                tool.arg(`/t.IndexingPolicyFile:${destinationDocumentDBIndexingPolicyFile}`);
             }
             break;
         }
@@ -188,7 +188,7 @@ function addDocumentDBDestinationParameters(tool: tr.ToolRunner){
 }
 
 function addOutputParameters(tool: tr.ToolRunner){
-    let logErrorLog = taskLib.getPathInput('logErrorLog', false);
+    let logErrorLog = taskLib.getInput('logErrorLog', false);
     let logOverwriteErrorLog = taskLib.getBoolInput('logOverwriteErrorLog', false);
 
     if (logErrorLog){
