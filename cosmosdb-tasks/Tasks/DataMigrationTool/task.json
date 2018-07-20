@@ -4,7 +4,7 @@
     "friendlyName": "Cosmos DB Data Migration Tool",
     "description": "With the Azure Cosmos DB Data Migration tool, you can easily migrate data to Azure Cosmos DB",
     "author": "Winvision BV",
-    "helpMarkDown": "[More Information]()",
+    "helpMarkDown": "[Support](https://github.com/Winvision/vsts-tasks)",
     "category": "Utility",
     "visibility": [
         "Build",
@@ -12,8 +12,8 @@
     ],
     "runsOn": ["Agent"],
     "version": {
-        "Major": 0,
-        "Minor": 1,
+        "Major": 1,
+        "Minor": 0,
         "Patch": 0
     },
     "minimumAgentVersion": "1.83.0",
@@ -119,7 +119,7 @@
                 "inline" : "Enter Query",
                 "filepath" : "Select Query File"
             },
-            "required": false,
+            "required": true,
             "helpMarkDown": "Query type: File path or inline",
             "groupName": "sourceSettings",
             "visibleRule": "sourceType = DocumentDB",
@@ -175,7 +175,7 @@
         {
             "name": "destinationJsonFiles",
             "type": "filePath",
-            "label": "Json files",
+            "label": "Json file",
             "defaultValue": "",
             "required": true,
             "helpMarkDown": "Path to the file to write data to.",
@@ -252,13 +252,13 @@
         {
             "name": "destinationDocumentDBIndexingPolicyType",
             "type": "radio",
-            "label": "Query type",
+            "label": "Indexing policy",
             "defaultValue": "inline",
             "options": {
                 "inline" : "Enter Indexing Policy",
                 "filePath" : "Select Policy File"
             },
-            "required": false,
+            "required": true,
             "helpMarkDown": "Indexing policy type: File path or inline",
             "groupName": "destinationSettings",
             "visibleRule": "destinationType = DocumentDB",

@@ -1,0 +1,125 @@
+{
+  "id": "DC86E5F9-18E2-492B-8D35-588E526AA3B1",
+  "name": "CosmosDBCollectionManagement",
+  "friendlyName": "ms-resource:loc.friendlyName",
+  "description": "ms-resource:loc.description",
+  "author": "Winvision BV",
+  "helpMarkDown": "ms-resource:loc.helpMarkDown",
+  "category": "Utility",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "runsOn": [
+    "Agent"
+  ],
+  "version": {
+    "Major": 1,
+    "Minor": 0,
+    "Patch": 1
+  },
+  "minimumAgentVersion": "1.83.0",
+  "instanceNameFormat": "ms-resource:loc.instanceNameFormat",
+  "groups": [],
+  "inputs": [
+    {
+      "name": "actionType",
+      "type": "pickList",
+      "label": "ms-resource:loc.input.label.actionType",
+      "defaultValue": "Create",
+      "options": {
+        "Create": "Create collection",
+        "Delete": "Delete collection",
+        "Update": "Update collection"
+      },
+      "required": true,
+      "helpMarkDown": "ms-resource:loc.input.help.actionType",
+      "properties": {
+        "EditableOptions": "False"
+      }
+    },
+    {
+      "name": "cosmosDBConnectionstring",
+      "type": "string",
+      "label": "ms-resource:loc.input.label.cosmosDBConnectionstring",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "ms-resource:loc.input.help.cosmosDBConnectionstring"
+    },
+    {
+      "name": "cosmosDBCollection",
+      "type": "string",
+      "label": "ms-resource:loc.input.label.cosmosDBCollection",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "ms-resource:loc.input.help.cosmosDBCollection"
+    },
+    {
+      "name": "cosmosDBCollectionThroughput",
+      "type": "string",
+      "label": "ms-resource:loc.input.label.cosmosDBCollectionThroughput",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "ms-resource:loc.input.help.cosmosDBCollectionThroughput",
+      "visibleRule": "actionType != Delete"
+    },
+    {
+      "name": "cosmosDBPartitionKey",
+      "type": "string",
+      "label": "ms-resource:loc.input.label.cosmosDBPartitionKey",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "ms-resource:loc.input.help.cosmosDBPartitionKey",
+      "visibleRule": "actionType = Create"
+    },
+    {
+      "name": "cosmosDBTimeToLive",
+      "type": "string",
+      "label": "ms-resource:loc.input.label.cosmosDBTimeToLive",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "ms-resource:loc.input.help.cosmosDBTimeToLive",
+      "visibleRule": "actionType != Delete"
+    },
+    {
+      "name": "cosmosDBIndexingPolicyType",
+      "type": "radio",
+      "label": "ms-resource:loc.input.label.cosmosDBIndexingPolicyType",
+      "defaultValue": "inline",
+      "options": {
+        "inline": "Enter Indexing Policy",
+        "filePath": "Select Policy File"
+      },
+      "required": true,
+      "helpMarkDown": "ms-resource:loc.input.help.cosmosDBIndexingPolicyType",
+      "visibleRule": "actionType != Delete",
+      "properties": {
+        "EditableOptions": "False"
+      }
+    },
+    {
+      "name": "cosmosDBIndexingPolicy",
+      "type": "multiLine",
+      "label": "ms-resource:loc.input.label.cosmosDBIndexingPolicy",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "ms-resource:loc.input.help.cosmosDBIndexingPolicy",
+      "visibleRule": "actionType != Delete && cosmosDBIndexingPolicyType = inline"
+    },
+    {
+      "name": "cosmosDBIndexingPolicyFile",
+      "type": "filePath",
+      "label": "ms-resource:loc.input.label.cosmosDBIndexingPolicyFile",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "ms-resource:loc.input.help.cosmosDBIndexingPolicyFile",
+      "visibleRule": "actionType != Delete && cosmosDBIndexingPolicyType = filePath"
+    }
+  ],
+  "execution": {
+    "Node": {
+      "target": "index.js"
+    }
+  },
+  "messages": {}
+}

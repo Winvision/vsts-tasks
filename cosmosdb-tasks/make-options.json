@@ -1,6 +1,7 @@
 {
     "tasks": [
-        "CosmosDBDataTool"
+        "DataMigrationTool",
+        "CosmosDBCollectionManagement"
     ],
     "taskResources": [
         "*.ps1",

@@ -2,7 +2,8 @@ import * as toolLib from 'vsts-task-tool-lib/tool';
 import * as taskLib from 'vsts-task-lib/task';
 import * as tr from 'vsts-task-lib/toolrunner';
 import * as path from "path";
-import datatoolDownloader = require('./datatoolDownloader');
+import datatoolDownloader = require('./datatooldownloader');
+import datatoolRunner = require('./datatoolrunner');
 
 async function run() {
     let dataToolPath: string;
@@ -17,14 +18,7 @@ async function run() {
         taskLib.setResult(taskLib.TaskResult.Failed, "");
     }
 
-    var dt = taskLib.tool(dataToolPath);
-    dt.arg('/s:JsonFile')
-
-    try {
-        var result = await dt.exec(<tr.IExecOptions>{ });
-    } catch (err) {
-        taskLib.error(err);
-    }
+    datatoolRunner.runDataTool(dataToolPath).catch((reason) => taskLib.setResult(taskLib.TaskResult.Failed, reason));
 }
 
 run();

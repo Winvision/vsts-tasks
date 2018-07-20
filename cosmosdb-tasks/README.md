@@ -46,7 +46,7 @@ npm run build
 ## Build a specific task (recommended):
 
 ```bash
-node make.js build --task CosmosDBUpdate
+node make.js build --task DataMigrationTool
 ```
 
 ## Run Tests
@@ -67,7 +67,7 @@ node make.js bump
 ## Update version number on a specific task (recommended):
 
 ``` bash
-node make.js bump --task CosmosDBDataTool
+node make.js bump --task DataMigrationTool
 ```
 
 ## Package Tasks:

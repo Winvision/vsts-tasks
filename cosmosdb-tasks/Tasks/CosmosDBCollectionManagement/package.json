@@ -1,5 +1,5 @@
 {
-  "name": "datamigrationtool",
+  "name": "cosmosdbcollectionmanagement",
   "version": "0.1.0",
   "description": ".Net Core Installer",
   "main": "index.js",
@@ -19,6 +19,7 @@
   "license": "MIT",
   "dependencies": {
     "vsts-task-lib": "^2.3.0",
-    "vsts-task-tool-lib": "^0.9.0"
+    "documentdb": "1.14.5",
+    "@types/documentdb": "1.10.5"
   }
 }
