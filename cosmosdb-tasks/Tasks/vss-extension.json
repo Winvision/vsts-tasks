@@ -3,7 +3,8 @@
     "id": "winvisionbv-cosmosdb-tasks",
     "name": "Tasks for Cosmos DB",
     "publisher": "winvision-bv",
-    "version" : "1.0.1",
+    "version" : "1.0.3",
+    "public": true,
     "targets": [
         {
             "id": "Microsoft.VisualStudio.Services"
@@ -37,6 +38,14 @@
     "branding": {
         "color": "rgb(202, 5, 56)",
         "theme": "light"
+    },
+    "links": {
+        "home": {
+            "uri": "https://github.com/Winvision/vsts-tasks"
+        },
+        "issues": {
+            "uri": "https://github.com/Winvision/vsts-tasks/issues"
+        }
     },
     "repository": {
         "type": "git",
