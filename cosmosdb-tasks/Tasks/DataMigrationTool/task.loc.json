@@ -16,7 +16,7 @@
   "version": {
     "Major": 1,
     "Minor": 0,
-    "Patch": 1
+    "Patch": 4
   },
   "minimumAgentVersion": "1.83.0",
   "instanceNameFormat": "ms-resource:loc.instanceNameFormat",
@@ -74,7 +74,7 @@
     },
     {
       "name": "sourceJsonFiles",
-      "type": "filePath",
+      "type": "string",
       "label": "ms-resource:loc.input.label.sourceJsonFiles",
       "defaultValue": "",
       "required": true,

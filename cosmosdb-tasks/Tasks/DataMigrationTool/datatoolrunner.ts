@@ -47,7 +47,7 @@ export async function runDataTool(path: string) : Promise<number> {
 }
 
 function addJsonSourceParameters(tool: tr.ToolRunner) {
-    let sourceJsonFiles = taskLib.getPathInput('sourceJsonFiles', true);
+    let sourceJsonFiles = taskLib.getInput('sourceJsonFiles', true);
     let sourceJsonDecompress = taskLib.getBoolInput('sourceJsonDecompress', false);
     
     tool.arg(`/s.Files:${sourceJsonFiles}`);
@@ -77,7 +77,7 @@ function addDocumentDBSourceParameters(tool: tr.ToolRunner) {
             break;
         }
         case 'filepath': {
-            if (sourceDocumentDBQueryFile){
+            if (taskLib.filePathSupplied('sourceDocumentDBQueryFile')){
                 if (!taskLib.exist(sourceDocumentDBQueryFile)) {
                     taskLib.setResult(taskLib.TaskResult.Failed, `Query file '${sourceDocumentDBQueryFile}' doesn't exist`);
                     return;
@@ -140,7 +140,7 @@ function addDocumentDBDestinationParameters(tool: tr.ToolRunner){
             break;
         }
         case 'inline': {
-            if(destinationDocumentDBIndexingPolicyFile) {
+            if(taskLib.filePathSupplied('destinationDocumentDBIndexingPolicyFile')) {
                 if (!taskLib.exist(destinationDocumentDBIndexingPolicyFile)) {
                     taskLib.setResult(taskLib.TaskResult.Failed, `Indexing policy file '${destinationDocumentDBIndexingPolicyFile}' doesn't exist`);
                     return;
@@ -191,7 +191,7 @@ function addOutputParameters(tool: tr.ToolRunner){
     let logErrorLog = taskLib.getInput('logErrorLog', false);
     let logOverwriteErrorLog = taskLib.getBoolInput('logOverwriteErrorLog', false);
 
-    if (logErrorLog){
+    if (taskLib.filePathSupplied('logErrorLog')){
         tool.arg(`/ErrorLog:${logErrorLog}`);
     }
 

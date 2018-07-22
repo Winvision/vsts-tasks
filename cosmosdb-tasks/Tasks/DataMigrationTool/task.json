@@ -14,7 +14,7 @@
     "version": {
         "Major": 1,
         "Minor": 0,
-        "Patch": 1
+        "Patch": 4
     },
     "minimumAgentVersion": "1.83.0",
     "instanceNameFormat": "Cosmos DB Data Migration Tool",
@@ -72,7 +72,7 @@
         },
         {
             "name": "sourceJsonFiles",
-            "type": "filePath",
+            "type": "string",
             "label": "Json files",
             "defaultValue": "",
             "required": true,
