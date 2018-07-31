@@ -1,0 +1,40 @@
+{
+  "name": "cosmosdbtaskbuild",
+  "version": "0.6.0",
+  "description": "Tasks for the TFS/VSTS build system",
+  "main": "make.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "build": "node make.js build",
+    "test": "node make.js test",
+    "package": "node make.js package"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Winvision/vsts-tasks"
+  },
+  "keywords": [
+    "vsts",
+    "tfs",
+    "build",
+    "release",
+    "cosmosdb"
+  ],
+  "author": "Winvision BV",
+  "devDependencies": {
+    "adm-zip": "0.4.7",
+    "markdown-toc": "^1.2.0",
+    "minimatch": "3.0.2",
+    "minimist": "1.1.1",
+    "mocha": "2.3.3",
+    "node-uuid": "1.4.6",
+    "q": "1.4.1",
+    "semver": "4.3.3",
+    "shelljs": "^0.3.0",
+    "sync-request": "3.0.1",
+    "typescript": "2.3.4",
+    "validator": "3.33.0"
+  }
+}

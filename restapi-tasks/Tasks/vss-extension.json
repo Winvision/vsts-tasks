@@ -1,0 +1,65 @@
+{
+    "manifestVersion": 1,
+    "id": "winvisionbv-restapi-tasks",
+    "name": "Tasks for VSTS/TFS REST API",
+    "publisher": "winvision-bv",
+    "version": "0.0.1",
+    "public": false,
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],
+    "description": "A build and release extension containing TFS/VSTS REST API related tasks.",
+    "categories": [
+        "Build and release"
+    ],
+    "tags": [
+        "tfs",
+        "vsts",
+        "rest",
+        "api"
+    ],
+    "icons": {
+        "default": "images/extension-icon.png"
+    },
+    "content": {
+        "details": {
+            "path": "overview.md"
+        }
+    },
+    "files": [
+        {
+            "path": "PullRequestSetStatus"
+        }
+    ],
+    "branding": {
+        "color": "rgb(202, 5, 56)",
+        "theme": "light"
+    },
+    "links": {
+        "home": {
+            "uri": "https://github.com/Winvision/vsts-tasks"
+        },
+        "issues": {
+            "uri": "https://github.com/Winvision/vsts-tasks/issues"
+        }
+    },
+    "repository": {
+        "type": "git",
+        "uri": "https://github.com/Winvision/vsts-tasks"
+    },
+    "contributions": [
+        {
+            "id": "PullRequestSetStatus",
+            "description": "Set the status of a Pull Request",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "PullRequestSetStatus"
+            }
+        }
+    ]
+}
