@@ -1,7 +1,3 @@
-/// <reference path="../definitions/mocha.d.ts"/>
-/// <reference path="../definitions/node.d.ts"/>
-/// <reference path="../definitions/Q.d.ts"/>
-
 import Q = require('q');
 import assert = require('assert');
 import path = require('path');
@@ -113,7 +109,7 @@ describe('General Suite', function () {
                 jsFiles.forEach(jsFile => {
                     if (jsFile.search(/[A-Z]/g) >= 0) {
                         console.error('Has uppercase in .js file name for tasks: ' + path.relative(tasksRootFolder, taskjson));
-                        assert(false, 'Has uppercase is dangerous for xplat tasks.' + taskjson);
+                        assert(false, 'Has uppercase is dangerous for xplat tasks.' + jsFile);
                     }
                 })
 
