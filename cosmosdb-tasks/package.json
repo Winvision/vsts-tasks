@@ -1,7 +1,7 @@
 {
   "name": "cosmosdbtaskbuild",
   "version": "0.6.0",
-  "description": "Tasks for the TFS/VSTS build system",
+  "description": "Cosmos DB tasks for the TFS/VSTS build system",
   "main": "make.js",
   "directories": {
     "doc": "docs"
