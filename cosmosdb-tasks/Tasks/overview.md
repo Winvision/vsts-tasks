@@ -11,7 +11,7 @@ This extension installs the following components
 ## Release notes
 * 1.0.0 - Initial release
 
-#Compatibility
+## Compatibility
 
 Runs on Windows agents
 
