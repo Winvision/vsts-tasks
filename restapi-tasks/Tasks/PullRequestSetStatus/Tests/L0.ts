@@ -6,10 +6,16 @@ import * as shared from './TestShared';
 describe('Pull Request Set Status Suite', function() {
     this.timeout(10000);
     beforeEach(() => {
+        delete process.env[shared.testEnvVars.tfsUrl];
+        delete process.env[shared.testEnvVars.token];
+        delete process.env[shared.testEnvVars.repositoryId];
+        delete process.env[shared.testEnvVars.pullRequestId];
         delete process.env[shared.testEnvVars.state];
-        //mock();
+        delete process.env[shared.testEnvVars.description];
+        delete process.env[shared.testEnvVars.name];
+        delete process.env[shared.testEnvVars.genre];
+        delete process.env[shared.testEnvVars.targetUrl];
     });
-    //afterEach(mock.restore);
 
     it('Fails with no arguments', (done: Mocha.Done) => {
         // Set the parameters for this test

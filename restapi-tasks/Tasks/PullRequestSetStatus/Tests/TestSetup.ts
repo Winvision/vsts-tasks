@@ -7,8 +7,6 @@ const taskPath = path.join(__dirname, '..', 'index.js');
 const tr: mockrun.TaskMockRunner = new mockrun.TaskMockRunner(taskPath);
 
 // Set inputs
-console.log(shared.testEnvVars.tfsUrl);
-console.log(process.env[shared.testEnvVars.tfsUrl]);
 tr.setInput('tfsUrl', process.env[shared.testEnvVars.tfsUrl]);
 tr.setInput('token', process.env[shared.testEnvVars.token]);
 tr.setInput('repositoryId', process.env[shared.testEnvVars.repositoryId]);
@@ -20,21 +18,9 @@ tr.setInput('genre', process.env[shared.testEnvVars.genre]);
 tr.setInput('targetUrl', process.env[shared.testEnvVars.targetUrl]);
 console.log('Inputs have been set');
 
-// Create mock for fs module
-// tr.registerMock('fs', {
-//     writeFileSync: function (filePath: any, contents: any) {
-//         // Mock
-//     },
-//     statSync(path: any, options: any) {
-//         return new Stats();
-//     }
-//     // readFileSync: function(filePath: any, options: any) {
-//     //     // Mock: return "";
-//     // }
-// });
-
 // Provide answers for task mock
 const a: mockanswer.TaskLibAnswers = <mockanswer.TaskLibAnswers>{};
 tr.setAnswers(a);
+console.log('Answers have been set.');
 
 tr.run();
