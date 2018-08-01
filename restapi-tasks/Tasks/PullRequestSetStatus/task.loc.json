@@ -1,0 +1,106 @@
+{
+  "id": "7B3152DD-A0EB-47BA-8D6D-B16F94224AC3",
+  "name": "PullRequestSetStatus",
+  "friendlyName": "ms-resource:loc.friendlyName",
+  "description": "ms-resource:loc.description",
+  "author": "Winvision",
+  "helpMarkDown": "ms-resource:loc.helpMarkDown",
+  "category": "Utility",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "runsOn": [
+    "Agent"
+  ],
+  "minimumAgentVersion": "1.83.2",
+  "version": {
+    "Major": 1,
+    "Minor": 0,
+    "Patch": 0
+  },
+  "instanceNameFormat": "ms-resource:loc.instanceNameFormat",
+  "groups": [],
+  "inputs": [
+    {
+      "name": "tfsUrl",
+      "type": "string",
+      "label": "ms-resource:loc.input.label.tfsUrl",
+      "required": true,
+      "helpMarkDown": "ms-resource:loc.input.help.tfsUrl",
+      "defaultValue": ""
+    },
+    {
+      "name": "token",
+      "type": "string",
+      "label": "ms-resource:loc.input.label.token",
+      "required": true,
+      "helpMarkDown": "ms-resource:loc.input.help.token",
+      "defaultValue": ""
+    },
+    {
+      "name": "repositoryId",
+      "type": "string",
+      "label": "ms-resource:loc.input.label.repositoryId",
+      "required": true,
+      "helpMarkDown": "ms-resource:loc.input.help.repositoryId",
+      "defaultValue": ""
+    },
+    {
+      "name": "pullRequestId",
+      "type": "string",
+      "label": "ms-resource:loc.input.label.pullRequestId",
+      "required": true,
+      "helpMarkDown": "ms-resource:loc.input.help.pullRequestId"
+    },
+    {
+      "name": "state",
+      "type": "radio",
+      "label": "ms-resource:loc.input.label.state",
+      "defaultValue": "notSet",
+      "required": true,
+      "helpMarkDown": "ms-resource:loc.input.help.state",
+      "options": {
+        "error": "Error",
+        "failed": "Failed",
+        "notApplicable": "Not Applicable",
+        "notSet": "Not Set",
+        "pending": "Pending",
+        "succeeded": "Succeeded"
+      }
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "label": "ms-resource:loc.input.label.description",
+      "required": true,
+      "helpMarkDown": "ms-resource:loc.input.help.description"
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "label": "ms-resource:loc.input.label.name",
+      "required": true,
+      "helpMarkDown": "ms-resource:loc.input.help.name"
+    },
+    {
+      "name": "genre",
+      "type": "string",
+      "label": "ms-resource:loc.input.label.genre",
+      "required": true,
+      "helpMarkDown": "ms-resource:loc.input.help.genre"
+    },
+    {
+      "name": "targetUrl",
+      "type": "string",
+      "label": "ms-resource:loc.input.label.targetUrl",
+      "required": true,
+      "helpMarkDown": "ms-resource:loc.input.help.targetUrl"
+    }
+  ],
+  "execution": {
+    "Node": {
+      "target": "src//index.js"
+    }
+  }
+}

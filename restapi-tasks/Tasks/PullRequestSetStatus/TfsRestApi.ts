@@ -1,4 +1,3 @@
-//import vsts = require('vso-node-api');
 import * as vsts from 'vso-node-api';
 import * as tl from 'vsts-task-lib/task';
 import * as GitApi from 'vso-node-api/GitApi';

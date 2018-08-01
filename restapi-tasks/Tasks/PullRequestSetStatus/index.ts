@@ -1,5 +1,5 @@
 import * as tl from 'vsts-task-lib/task';
-import { TfsRestApi } from './TfsRestApi';
+import { TfsRestApi } from './tfsrestapi';
 import * as GitInterfaces from 'vso-node-api/interfaces/GitInterfaces';
 
 async function run() {
@@ -34,6 +34,10 @@ async function run() {
             case 'succeeded':
                 stateVal = GitInterfaces.GitStatusState.Succeeded;
                 break;
+            default:
+                tl.error(`Could not parse the requested state: ${state}`);
+                tl.setResult(tl.TaskResult.Failed, 'Could not parse the requested state');
+                return;
         }
 
         tl.debug('Constructing status object body');
