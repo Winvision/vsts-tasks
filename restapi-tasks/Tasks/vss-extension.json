@@ -2,9 +2,9 @@
     "manifestVersion": 1,
     "id": "winvisionbv-restapi-tasks",
     "name": "Tasks for VSTS/TFS REST API",
-    "publisher": "ppluijten",
-    "version": "0.0.7",
-    "public": false,
+    "publisher": "winvision-bv",
+    "version": "1.0.0",
+    "public": true,
     "targets": [
         {
             "id": "Microsoft.VisualStudio.Services"
