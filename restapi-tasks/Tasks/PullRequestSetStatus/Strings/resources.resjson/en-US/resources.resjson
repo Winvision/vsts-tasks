@@ -8,7 +8,7 @@
   "loc.input.label.serverUrl": "Server URL",
   "loc.input.help.serverUrl": "Url to the TFS or VSTS server (https://tfsserver.ext/collection or https://account.visualstudio.com/DefaultCollection).",
   "loc.input.label.token": "Personal Access Token",
-  "loc.input.help.token": "The personal access token to connect with.",
+  "loc.input.help.token": "The personal access token to connect with, this token needs at least the 'Code (read and write)' (code_write) scope.",
   "loc.input.label.repositoryByName": "Repository by name",
   "loc.input.help.repositoryByName": "Whether to select your Git repository by name instead of id.",
   "loc.input.label.repositoryId": "Repository ID",

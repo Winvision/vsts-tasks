@@ -17,7 +17,7 @@
     "version": {
         "Major": 1,
         "Minor": 0,
-        "Patch": 3
+        "Patch": 4
     },
     "instanceNameFormat": "Set status of Pull Request",
     "groups": [
@@ -46,7 +46,7 @@
             "type": "string",
             "label": "Personal Access Token",
             "required": true,
-            "helpMarkDown": "The personal access token to connect with.",
+            "helpMarkDown": "The personal access token to connect with, this token needs at least the 'Code (read and write)' (code_write) scope.",
             "groupName": "connection"
         },
         {

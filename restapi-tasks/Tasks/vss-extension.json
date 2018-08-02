@@ -3,7 +3,7 @@
     "id": "winvisionbv-restapi-tasks",
     "name": "Tasks for VSTS/TFS REST API",
     "publisher": "ppluijten",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "public": false,
     "targets": [
         {
