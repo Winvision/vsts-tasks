@@ -38,7 +38,7 @@
             "type": "string",
             "label": "Server URL",
             "required": true,
-            "helpMarkDown": "Url to the TFS or VSTS server (https://tfsserver.ext/collection or https://account.visualstudio.com/DefaultCollection).",
+            "helpMarkDown": "URL to the TFS or VSTS server (https://tfsserver.ext/collection or https://account.visualstudio.com/DefaultCollection).",
             "groupName": "connection"
         },
         {
