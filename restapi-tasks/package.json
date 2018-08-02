@@ -1,7 +1,7 @@
 {
-  "name": "cosmosdbtaskbuild",
-  "version": "0.6.0",
-  "description": "Cosmos DB tasks for the TFS/VSTS build system",
+  "name": "restapitaskbuild",
+  "version": "0.1.0",
+  "description": "Tasks for the TFS/VSTS build system",
   "main": "make.js",
   "directories": {
     "doc": "docs"
@@ -16,11 +16,12 @@
     "url": "https://github.com/Winvision/vsts-tasks"
   },
   "keywords": [
-    "vsts",
     "tfs",
+    "vsts",
+    "rest",
+    "api",
     "build",
-    "release",
-    "cosmosdb"
+    "release"
   ],
   "author": "Winvision BV",
   "devDependencies": {

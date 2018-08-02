@@ -1,0 +1,151 @@
+{
+  "id": "7B3152DD-A0EB-47BA-8D6D-B16F94224AC3",
+  "name": "PullRequestSetStatus",
+  "friendlyName": "ms-resource:loc.friendlyName",
+  "description": "ms-resource:loc.description",
+  "author": "Winvision",
+  "helpMarkDown": "ms-resource:loc.helpMarkDown",
+  "category": "Utility",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "runsOn": [
+    "Agent"
+  ],
+  "minimumAgentVersion": "1.83.2",
+  "version": {
+    "Major": 1,
+    "Minor": 0,
+    "Patch": 4
+  },
+  "instanceNameFormat": "ms-resource:loc.instanceNameFormat",
+  "groups": [
+    {
+      "name": "connection",
+      "displayName": "ms-resource:loc.group.displayName.connection",
+      "isExpanded": true
+    },
+    {
+      "name": "pullRequest",
+      "displayName": "ms-resource:loc.group.displayName.pullRequest",
+      "isExpanded": true
+    }
+  ],
+  "inputs": [
+    {
+      "name": "serverUrl",
+      "type": "string",
+      "label": "ms-resource:loc.input.label.serverUrl",
+      "required": true,
+      "helpMarkDown": "ms-resource:loc.input.help.serverUrl",
+      "groupName": "connection"
+    },
+    {
+      "name": "token",
+      "type": "string",
+      "label": "ms-resource:loc.input.label.token",
+      "required": true,
+      "helpMarkDown": "ms-resource:loc.input.help.token",
+      "groupName": "connection"
+    },
+    {
+      "name": "repositoryByName",
+      "type": "boolean",
+      "label": "ms-resource:loc.input.label.repositoryByName",
+      "defaultValue": "false",
+      "required": true,
+      "helpMarkDown": "ms-resource:loc.input.help.repositoryByName",
+      "groupName": "connection"
+    },
+    {
+      "name": "repositoryId",
+      "type": "string",
+      "label": "ms-resource:loc.input.label.repositoryId",
+      "required": true,
+      "helpMarkDown": "ms-resource:loc.input.help.repositoryId",
+      "visibleRule": "repositoryByName = false",
+      "groupName": "connection"
+    },
+    {
+      "name": "repositoryName",
+      "type": "string",
+      "label": "ms-resource:loc.input.label.repositoryName",
+      "required": true,
+      "helpMarkDown": "ms-resource:loc.input.help.repositoryName",
+      "visibleRule": "repositoryByName = true",
+      "groupName": "connection"
+    },
+    {
+      "name": "projectName",
+      "type": "string",
+      "label": "ms-resource:loc.input.label.projectName",
+      "required": true,
+      "helpMarkDown": "ms-resource:loc.input.help.projectName",
+      "visibleRule": "repositoryByName = true",
+      "groupName": "connection"
+    },
+    {
+      "name": "pullRequestId",
+      "type": "string",
+      "label": "ms-resource:loc.input.label.pullRequestId",
+      "required": true,
+      "helpMarkDown": "ms-resource:loc.input.help.pullRequestId",
+      "groupName": "pullRequest"
+    },
+    {
+      "name": "state",
+      "type": "radio",
+      "label": "ms-resource:loc.input.label.state",
+      "defaultValue": "notSet",
+      "required": true,
+      "helpMarkDown": "ms-resource:loc.input.help.state",
+      "options": {
+        "error": "Error",
+        "failed": "Failed",
+        "notApplicable": "Not Applicable",
+        "notSet": "Not Set",
+        "pending": "Pending",
+        "succeeded": "Succeeded"
+      },
+      "groupName": "pullRequest"
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "label": "ms-resource:loc.input.label.description",
+      "required": true,
+      "helpMarkDown": "ms-resource:loc.input.help.description",
+      "groupName": "pullRequest"
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "label": "ms-resource:loc.input.label.name",
+      "required": true,
+      "helpMarkDown": "ms-resource:loc.input.help.name",
+      "groupName": "pullRequest"
+    },
+    {
+      "name": "genre",
+      "type": "string",
+      "label": "ms-resource:loc.input.label.genre",
+      "required": true,
+      "helpMarkDown": "ms-resource:loc.input.help.genre",
+      "groupName": "pullRequest"
+    },
+    {
+      "name": "targetUrl",
+      "type": "string",
+      "label": "ms-resource:loc.input.label.targetUrl",
+      "required": true,
+      "helpMarkDown": "ms-resource:loc.input.help.targetUrl",
+      "groupName": "pullRequest"
+    }
+  ],
+  "execution": {
+    "Node": {
+      "target": "index.js"
+    }
+  }
+}
