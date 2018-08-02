@@ -7,9 +7,12 @@ const taskPath = path.join(__dirname, '..', 'index.js');
 const tr: mockrun.TaskMockRunner = new mockrun.TaskMockRunner(taskPath);
 
 // Set inputs
-tr.setInput('tfsUrl', process.env[shared.testEnvVars.tfsUrl]);
+tr.setInput('serverUrl', process.env[shared.testEnvVars.serverUrl]);
 tr.setInput('token', process.env[shared.testEnvVars.token]);
+tr.setInput('repositoryByName', process.env[shared.testEnvVars.repositoryByName]);
 tr.setInput('repositoryId', process.env[shared.testEnvVars.repositoryId]);
+tr.setInput('repositoryName', process.env[shared.testEnvVars.repositoryName]);
+tr.setInput('projectName', process.env[shared.testEnvVars.projectName]);
 tr.setInput('pullRequestId', process.env[shared.testEnvVars.pullRequestId]);
 tr.setInput('state', process.env[shared.testEnvVars.state]);
 tr.setInput('description', process.env[shared.testEnvVars.description]);

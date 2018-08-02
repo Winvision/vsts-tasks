@@ -343,7 +343,7 @@ target.test = function() {
     // setup the version of node to run the tests
     util.installNode(options.node);
 
-    run('mocha ' + testsSpec.join(' ') /*+ ' --reporter mocha-junit-reporter --reporter-options mochaFile=../testresults/test-results.xml'*/, /*inheritStreams:*/true);
+    run('mocha ' + testsSpec.join(' '), /*inheritStreams:*/true);
 }
 
 //
@@ -470,7 +470,7 @@ target.testLegacy = function() {
     });
     contents += '});' + os.EOL;
     fs.writeFileSync(testsSpecPath, contents);
-    run('mocha ' + testsSpecPath /*+ ' --reporter mocha-junit-reporter --reporter-options mochaFile=../testresults/test-legacy-results.xml' */, /*inheritStreams:*/true);
+    run('mocha ' + testsSpecPath, /*inheritStreams:*/true);
 }
 
 // 
@@ -480,72 +480,18 @@ target.testLegacy = function() {
 target.package = function() {
     banner('Starting package process...')
 
-    // START LOCAL CONFIG
-    // console.log('> Cleaning packge path');
-    // rm('-Rf', packagePath);
-    // TODO: Only need this when we run locally
-    //var layoutPath = util.createNonAggregatedZip(buildPath, packagePath);
-    // END LOCAL CONFIG
-    // Note: The local section above is needed when running layout locally due to discrepancies between local build and
-    //       slicing in CI. This will get cleaned up after we fully roll out and go to build only changed.
-    var layoutPath = path.join(packagePath, 'milestone-layout');
-    util.createNugetPackagePerTask(packagePath, layoutPath);
+    target.build();
 
-    // These methods are to help with the migration to NuGet package per task.
-    // Get rid of them after transition is done.
-    //var path = '';
-    //util.renameFoldersFromAggregate(path);
-    //util.generatePerTaskForLegacyPackages(path);
-}
+    // extension file to output folder
+    var extensionFile = path.join(__dirname, 'Tasks', 'vss-extension.json');
+    var vssJson = JSON.parse(fs.readFileSync(extensionFile));
+    
+    //vssJson.version = process.env.GitVersion_MajorMinorPatch;
+    //fs.writeFileSync(extensionFile, JSON.stringify(vssJson, null, 4));
 
-// used by CI that does official publish
-target.publish = function() {
-    var server = options.server;
-    assert(server, 'server');
+    matchCopy(path.join('**', '@(*.json|*.md)'), path.join(__dirname, 'Tasks'), buildPath);
 
-    // if task specified, skip
-    if (options.task) {
-        banner('Task parameter specified. Skipping publish.');
-        return;
-    }
-
-    // get the branch/commit info
-    var refs = util.getRefs();
-
-    // test whether to publish the non-aggregated tasks zip
-    // skip if not the tip of a release branch
-    var release = refs.head.release;
-    var commit = refs.head.commit;
-    if (!release ||
-        !refs.releases[release] ||
-        commit != refs.releases[release].commit) {
-
-        // warn not publishing the non-aggregated
-        console.log(`##vso[task.logissue type=warning]Skipping publish for non-aggregated tasks zip. HEAD is not the tip of a release branch.`);
-    }
-    else {
-        // store the non-aggregated tasks zip
-        var nonAggregatedZipPath = path.join(packagePath, 'non-aggregated-tasks.zip');
-        util.storeNonAggregatedZip(nonAggregatedZipPath, release, commit);
-    }
-
-    // resolve the nupkg path
-    var nupkgFile;
-    var nupkgDir = path.join(packagePath, 'pack-target');
-    if (!test('-d', nupkgDir)) {
-        fail('nupkg directory does not exist');
-    }
-
-    var fileNames = fs.readdirSync(nupkgDir);
-    if (fileNames.length != 1) {
-        fail('Expected exactly one file under ' + nupkgDir);
-    }
-
-    nupkgFile = path.join(nupkgDir, fileNames[0]);
-
-    // publish the package
-    ensureTool('nuget3.exe');
-    run(`nuget3.exe push ${nupkgFile} -Source ${server} -apikey Skyrise`);
+    matchCopy(path.join('**', '@(*.png|*.svg)'), path.join(__dirname, 'Tasks', 'images'), path.join(buildPath, 'images'));
 }
 
 // used to bump the patch version in task.json files

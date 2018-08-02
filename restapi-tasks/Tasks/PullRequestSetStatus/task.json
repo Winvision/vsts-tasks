@@ -10,23 +10,36 @@
         "Build",
         "Release"
     ],
-    "runsOn": [ "Agent" ],
+    "runsOn": [
+        "Agent"
+    ],
     "minimumAgentVersion": "1.83.2",
     "version": {
         "Major": 1,
         "Minor": 0,
-        "Patch": 0
+        "Patch": 3
     },
     "instanceNameFormat": "Set status of Pull Request",
-    "groups": [],
+    "groups": [
+        {
+            "name": "connection",
+            "displayName": "Connection Settings",
+            "isExpanded": true
+        },
+        {
+            "name": "pullRequest",
+            "displayName": "Pull Request Settings",
+            "isExpanded": true
+        }
+    ],
     "inputs": [
         {
-            "name": "tfsUrl",
+            "name": "serverUrl",
             "type": "string",
-            "label": "TFS URL",
+            "label": "Server URL",
             "required": true,
-            "helpMarkDown": "Url to the TFS server (https://tfsserver/collection).",
-            "defaultValue": ""
+            "helpMarkDown": "Url to the TFS or VSTS server (https://tfsserver.ext/collection or https://account.visualstudio.com/DefaultCollection).",
+            "groupName": "connection"
         },
         {
             "name": "token",
@@ -34,7 +47,16 @@
             "label": "Personal Access Token",
             "required": true,
             "helpMarkDown": "The personal access token to connect with.",
-            "defaultValue": ""
+            "groupName": "connection"
+        },
+        {
+            "name": "repositoryByName",
+            "type": "boolean",
+            "label": "Repository by name",
+            "defaultValue": "false",
+            "required": true,
+            "helpMarkDown": "Whether to select your Git repository by name instead of id.",
+            "groupName": "connection"
         },
         {
             "name": "repositoryId",
@@ -42,14 +64,34 @@
             "label": "Repository ID",
             "required": true,
             "helpMarkDown": "The ID of the Git Repository (GUID).",
-            "defaultValue": ""
+            "visibleRule": "repositoryByName = false",
+            "groupName": "connection"
+        },
+        {
+            "name": "repositoryName",
+            "type": "string",
+            "label": "Repository name",
+            "required": true,
+            "helpMarkDown": "The name of the Git Repository.",
+            "visibleRule": "repositoryByName = true",
+            "groupName": "connection"
+        },
+        {
+            "name": "projectName",
+            "type": "string",
+            "label": "Project name",
+            "required": true,
+            "helpMarkDown": "The name of the source Project.",
+            "visibleRule": "repositoryByName = true",
+            "groupName": "connection"
         },
         {
             "name": "pullRequestId",
             "type": "string",
             "label": "Pull Request ID",
             "required": true,
-            "helpMarkDown": "The number of the Pull Request."
+            "helpMarkDown": "The number of the Pull Request.",
+            "groupName": "pullRequest"
         },
         {
             "name": "state",
@@ -65,40 +107,45 @@
                 "notSet": "Not Set",
                 "pending": "Pending",
                 "succeeded": "Succeeded"
-            }
+            },
+            "groupName": "pullRequest"
         },
         {
             "name": "description",
             "type": "string",
             "label": "Description",
             "required": true,
-            "helpMarkDown": "The description of the Pull Request Status."
+            "helpMarkDown": "The description of the Pull Request Status.",
+            "groupName": "pullRequest"
         },
         {
             "name": "name",
             "type": "string",
             "label": "Name",
             "required": true,
-            "helpMarkDown": "The name of the Pull Request Status."
+            "helpMarkDown": "The name of the Pull Request Status.",
+            "groupName": "pullRequest"
         },
         {
             "name": "genre",
             "type": "string",
             "label": "Genre",
             "required": true,
-            "helpMarkDown": "The genre of the Pull Request Status."
+            "helpMarkDown": "The genre of the Pull Request Status.",
+            "groupName": "pullRequest"
         },
         {
             "name": "targetUrl",
             "type": "string",
             "label": "Target URL",
             "required": true,
-            "helpMarkDown": "The target URL of the Pull Request Status."
+            "helpMarkDown": "The target URL of the Pull Request Status.",
+            "groupName": "pullRequest"
         }
     ],
     "execution": {
         "Node": {
-            "target": "src//index.js"
+            "target": "index.js"
         }
     }
 }

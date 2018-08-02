@@ -5,10 +5,12 @@ import * as GitInterfaces from 'vso-node-api/interfaces/GitInterfaces';
 async function run() {
     try {
         console.log('Starting TFSPullRequestSetStatus task');
-
-        const tfsUrl = tl.getInput('tfsUrl', true);
+        const serverUrl = tl.getInput('serverUrl', true);
         const token = tl.getInput('token', true);
-        const repositoryId = tl.getInput('repositoryId', true);
+        const repositoryByName = tl.getBoolInput('repositoryByName', true);
+        const repositoryId = tl.getInput('repositoryId', !repositoryByName);
+        const repositoryName = tl.getInput('repositoryName', repositoryByName);
+        const projectName = tl.getInput('projectName', repositoryByName);
         const pullRequestId = tl.getInput('pullRequestId', true);
         const state = tl.getInput('state', true);
         const description = tl.getInput('description', true);
@@ -59,7 +61,14 @@ async function run() {
         };
 
         tl.debug('Initialising TfsRestApi');
-        const tfsRestApi = new TfsRestApi(tfsUrl, token, repositoryId);
+        let tfsRestApi: TfsRestApi = null;
+        if (repositoryByName) {
+            tl.debug('Using repository name and project name');
+            tfsRestApi = new TfsRestApi(serverUrl, token, repositoryName, projectName);
+        } else {
+            tl.debug('Using repository id');
+            tfsRestApi = new TfsRestApi(serverUrl, token, repositoryId);
+        }
 
         tl.debug('Casting Pull Request ID to number');
         const pullRequestNumber = Number(pullRequestId);

@@ -1,7 +1,10 @@
 export let testEnvVars = {
-    tfsUrl: 'tfsUrl',
+    serverUrl: 'serverUrl',
     token: 'token',
+    repositoryByName: 'repositoryByName',
     repositoryId: 'repositoryId',
+    repositoryName: 'repositoryName',
+    projectName: 'projectName',
     pullRequestId: 'pullRequestId',
     state: 'state',
     description: 'description',
