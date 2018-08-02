@@ -6,7 +6,7 @@
   "loc.group.displayName.connection": "Connection Settings",
   "loc.group.displayName.pullRequest": "Pull Request Settings",
   "loc.input.label.serverUrl": "Server URL",
-  "loc.input.help.serverUrl": "Url to the TFS or VSTS server (https://tfsserver.ext/collection or https://account.visualstudio.com/DefaultCollection).",
+  "loc.input.help.serverUrl": "URL to the TFS or VSTS server (https://tfsserver.ext/collection or https://account.visualstudio.com/DefaultCollection).",
   "loc.input.label.token": "Personal Access Token",
   "loc.input.help.token": "The personal access token to connect with, this token needs at least the 'Code (read and write)' (code_write) scope.",
   "loc.input.label.repositoryByName": "Repository by name",
