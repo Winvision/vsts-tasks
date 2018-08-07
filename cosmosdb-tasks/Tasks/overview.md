@@ -9,13 +9,14 @@ This extension installs the following components
 - **Cosmos DB Collection Management:** A Build/Release task to create/update your existing collection(s).
 
 **Cosmos DB Data Migration Tool**
-![Data Migration Tool task](/cosmosdb-tasks/Tasks/images/cosmosdbdatamigrationtool.png)
+![Data Migration Tool task](img/cosmosdbdatamigrationtool.png)
 
-**Cosmos DB Data Migration Tool**
-![Collection Management task](/cosmosdb-tasks/Tasks/images/cosmosdbcollection.png)
+**Cosmos DB Data Collection Management**
+![Collection Management task](img/cosmosdbcollection.png)
 
 ## Release notes
 * 1.0.0 - Initial release
+* 1.0.9 - Added screenshots, fixed logging if no logging file name is specified
 
 ## Compatibility
 

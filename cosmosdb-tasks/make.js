@@ -492,6 +492,8 @@ target.package = function() {
     matchCopy(path.join('**', '@(*.json|*.md)'), path.join(__dirname, 'Tasks'), buildPath);
 
     matchCopy(path.join('**', '@(*.png|*.svg)'), path.join(__dirname, 'Tasks', 'images'), path.join(buildPath, 'images'));
+
+    matchCopy(path.join('**', '@(*.png|*.svg)'), path.join(__dirname, 'Tasks', 'img'), path.join(buildPath, 'img'));
 }
 
 // used to bump the patch version in task.json files

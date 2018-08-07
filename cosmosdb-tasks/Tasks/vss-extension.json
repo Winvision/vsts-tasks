@@ -3,7 +3,7 @@
     "id": "winvisionbv-cosmosdb-tasks",
     "name": "Tasks for Cosmos DB",
     "publisher": "winvision-bv",
-    "version" : "1.0.7",
+    "version" : "1.0.9",
     "public": true,
     "targets": [
         {
@@ -33,6 +33,10 @@
         },
         {
             "path": "CosmosDBCollectionManagement"
+        },
+        {
+            "path": "img",
+            "addressable": true
         }
     ],
     "branding": {
