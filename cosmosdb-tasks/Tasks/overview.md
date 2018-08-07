@@ -8,6 +8,12 @@ This extension installs the following components
 - **Cosmos DB Data Migration Tool:** A Build/Release task to run the Data Migration Tool. [Learn more](https://azure.microsoft.com/en-us/updates/documentdb-data-migration-tool/)
 - **Cosmos DB Collection Management:** A Build/Release task to create/update your existing collection(s).
 
+**Cosmos DB Data Migration Tool**
+![Data Migration Tool task](/cosmosdb-tasks/Tasks/images/cosmosdbdatamigrationtool.png)
+
+**Cosmos DB Data Migration Tool**
+![Collection Management task](/cosmosdb-tasks/Tasks/images/cosmosdbcollection.png)
+
 ## Release notes
 * 1.0.0 - Initial release
 
