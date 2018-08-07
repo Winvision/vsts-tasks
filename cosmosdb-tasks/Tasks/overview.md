@@ -11,7 +11,7 @@ This extension installs the following components
 **Cosmos DB Data Migration Tool**
 ![Data Migration Tool task](img/cosmosdbdatamigrationtool.png)
 
-**Cosmos DB Data Collection Management**
+**Cosmos DB Collection Management**
 ![Collection Management task](img/cosmosdbcollection.png)
 
 ## Release notes
