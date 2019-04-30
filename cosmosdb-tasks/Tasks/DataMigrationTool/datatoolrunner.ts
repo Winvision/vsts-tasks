@@ -70,7 +70,7 @@ function addDocumentDBSourceParameters(tool: tr.ToolRunner) {
     switch (sourceDocumentDBQueryType) {
         case 'inline': {
             if (sourceDocumentDBQuery) {
-                tool.arg(`/s.Query:"${sourceDocumentDBQuery}"`);
+                tool.arg(`/s.Query:${sourceDocumentDBQuery}`);
             }
             break;
         }
@@ -81,7 +81,7 @@ function addDocumentDBSourceParameters(tool: tr.ToolRunner) {
                     return;
                 }
 
-                tool.arg(`/s.QueryFile:"${sourceDocumentDBQueryFile}"`);
+                tool.arg(`/s.QueryFile:${sourceDocumentDBQueryFile}`);
             }
             break;
         }

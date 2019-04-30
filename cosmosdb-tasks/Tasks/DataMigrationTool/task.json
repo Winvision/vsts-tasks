@@ -10,11 +10,13 @@
         "Build",
         "Release"
     ],
-    "runsOn": ["Agent"],
+    "runsOn": [
+        "Agent"
+    ],
     "version": {
         "Major": 1,
         "Minor": 0,
-        "Patch": 5
+        "Patch": 13
     },
     "minimumAgentVersion": "1.83.0",
     "instanceNameFormat": "Cosmos DB Data Migration Tool",
@@ -60,9 +62,9 @@
             "label": "Source Type",
             "defaultValue": "JsonFile",
             "options": {
-				"JsonFile": "JsonFile: Reads data from JSON files, either one or multiple",
-				"DocumentDB": "Cosmos DB: Reads data from Cosmos DB collections"
-			},
+                "JsonFile": "JsonFile: Reads data from JSON files, either one or multiple",
+                "DocumentDB": "Cosmos DB: Reads data from Cosmos DB collections"
+            },
             "required": true,
             "helpMarkDown": "Source type for data migration",
             "groupName": "sourceSettings",
@@ -116,8 +118,8 @@
             "label": "Query type",
             "defaultValue": "inline",
             "options": {
-                "inline" : "Enter Query",
-                "filepath" : "Select Query File"
+                "inline": "Enter Query",
+                "filepath": "Select Query File"
             },
             "required": true,
             "helpMarkDown": "Query type: File path or inline",
@@ -162,9 +164,9 @@
             "label": "Destination Type",
             "defaultValue": "DocumentDB",
             "options": {
-				"JsonFile": "JsonFile: Stores data in a single JSON file with root array element",
+                "JsonFile": "JsonFile: Stores data in a single JSON file with root array element",
                 "DocumentDB": "Cosmos DB: Uploads data into partitioned CosmosDB collection"
-			},
+            },
             "required": true,
             "helpMarkDown": "Destination type for data migration",
             "groupName": "destinationSettings",
@@ -255,8 +257,8 @@
             "label": "Indexing policy",
             "defaultValue": "inline",
             "options": {
-                "inline" : "Enter Indexing Policy",
-                "filePath" : "Select Policy File"
+                "inline": "Enter Indexing Policy",
+                "filePath": "Select Policy File"
             },
             "required": true,
             "helpMarkDown": "Indexing policy type: File path or inline",
@@ -329,10 +331,10 @@
             "label": "Dates",
             "defaultValue": "String",
             "options": {
-				"String": "String",
+                "String": "String",
                 "Epoch": "Epoch",
                 "Both": "Both"
-			},
+            },
             "helpMarkDown": "Optional, default is String. Specifies how timestamps should be persisted: String, Epoch, Both",
             "groupName": "destinationSettings",
             "visibleRule": "destinationType = DocumentDB",
