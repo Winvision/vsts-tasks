@@ -10,16 +10,17 @@
         "Build",
         "Release"
     ],
-    "runsOn": ["Agent"],
+    "runsOn": [
+        "Agent"
+    ],
     "version": {
         "Major": 1,
         "Minor": 0,
-        "Patch": 5
+        "Patch": 16
     },
     "minimumAgentVersion": "1.83.0",
     "instanceNameFormat": "Cosmos DB Collection Management: $(actionType) collection $(cosmosDBCollection)",
-    "groups": [
-    ],
+    "groups": [],
     "inputs": [
         {
             "name": "actionType",
@@ -27,10 +28,10 @@
             "label": "Action",
             "defaultValue": "Create",
             "options": {
-				"Create": "Create collection",
+                "Create": "Create collection",
                 "Delete": "Delete collection",
                 "Update": "Update collection"
-			},
+            },
             "required": true,
             "helpMarkDown": "Action to be performed",
             "properties": {
@@ -54,6 +55,15 @@
             "helpMarkDown": "Regex pattern to match one or more documents collection names"
         },
         {
+            "name": "cosmosDBCollectionCreateIfNotExists",
+            "type": "boolean",
+            "label": "Create collection if it doesn't exists",
+            "defaultValue": "true",
+            "required": true,
+            "helpMarkDown": "Create the collection if it doesn't exist",
+            "visibleRule": "actionType = Update"
+        },
+        {
             "name": "cosmosDBCollectionThroughput",
             "type": "string",
             "label": "Collection Throughput",
@@ -69,7 +79,7 @@
             "defaultValue": "",
             "required": false,
             "helpMarkDown": "Optional. Path to the property to use as hash partitioning key (example: \"/deviceId\")",
-            "visibleRule": "actionType = Create"
+            "visibleRule": "actionType = Create || cosmosDBCollectionCreateIfNotExists = true"
         },
         {
             "name": "cosmosDBTimeToLive",
@@ -86,8 +96,8 @@
             "label": "Indexing policy",
             "defaultValue": "inline",
             "options": {
-                "inline" : "Enter Indexing Policy",
-                "filePath" : "Select Policy File"
+                "inline": "Enter Indexing Policy",
+                "filePath": "Select Policy File"
             },
             "required": true,
             "helpMarkDown": "Indexing policy type: File path or inline",

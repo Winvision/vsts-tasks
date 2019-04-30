@@ -16,7 +16,7 @@
   "version": {
     "Major": 1,
     "Minor": 0,
-    "Patch": 5
+    "Patch": 16
   },
   "minimumAgentVersion": "1.83.0",
   "instanceNameFormat": "ms-resource:loc.instanceNameFormat",
@@ -55,6 +55,15 @@
       "helpMarkDown": "ms-resource:loc.input.help.cosmosDBCollection"
     },
     {
+      "name": "cosmosDBCollectionCreateIfNotExists",
+      "type": "boolean",
+      "label": "ms-resource:loc.input.label.cosmosDBCollectionCreateIfNotExists",
+      "defaultValue": "true",
+      "required": true,
+      "helpMarkDown": "ms-resource:loc.input.help.cosmosDBCollectionCreateIfNotExists",
+      "visibleRule": "actionType = Update"
+    },
+    {
       "name": "cosmosDBCollectionThroughput",
       "type": "string",
       "label": "ms-resource:loc.input.label.cosmosDBCollectionThroughput",
@@ -70,7 +79,7 @@
       "defaultValue": "",
       "required": false,
       "helpMarkDown": "ms-resource:loc.input.help.cosmosDBPartitionKey",
-      "visibleRule": "actionType = Create"
+      "visibleRule": "actionType = Create || cosmosDBCollectionCreateIfNotExists = true"
     },
     {
       "name": "cosmosDBTimeToLive",

@@ -89,19 +89,36 @@ export class CosmosDb {
         });  
     }
 
-    UpdateCollection(database: string, collection: string, throughput: string, ttl: string, indexingPolicy: db.IndexingPolicy) {
+    UpdateCollection(database: string, collection: string, throughput: string, partitionKey: string, ttl: string, indexingPolicy: db.IndexingPolicy, createIfNotExists: boolean) {
         let databaseLink = db.UriFactory.createDatabaseUri(database);
 
         this.client.readDatabase(databaseLink, (err, d) => {
             if (err) {
-                taskLib.setResult(taskLib.TaskResult.Failed, `Database ${database} doesn't exist.`);
-                return;
+                if (createIfNotExists === false) {
+                    taskLib.setResult(taskLib.TaskResult.Failed, `Database ${database} doesn't exist.`);
+                    return;
+                }
+
+                taskLib.warning(`Database ${database} doesn't exist, creating it now`)
+                this.client.createDatabase({ id: database}, (err, d) => {
+                    if (err){
+                        this.handleError(err);
+                        return;
+                    }
+
+                    taskLib.debug(`Database ${database} created`);
+                });
             }
 
             let collectionLink = db.UriFactory.createDocumentCollectionUri(database, collection);
             this.client.readCollection(collectionLink, (err, c) =>{
                 if (err) {
-                    taskLib.setResult(taskLib.TaskResult.Failed, `Collection ${collection} in database ${database} doesn't exist.`);
+                    if (createIfNotExists === false) {
+                        taskLib.setResult(taskLib.TaskResult.Failed, `Collection ${collection} in database ${database} doesn't exist.`);
+                        return;
+                    }
+    
+                    this.CreateCollection(database, collection, throughput, partitionKey, ttl, indexingPolicy);
                     return;
                 }
 

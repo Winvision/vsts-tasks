@@ -9,6 +9,8 @@ async function run(): Promise<void> {
         let cosmosDBConnectionstring = taskLib.getInput('cosmosDBConnectionstring', true);
         let cosmosDBCollection = taskLib.getInput('cosmosDBCollection', true);
 
+        let cosmosDBCollectionCreateIfNotExists = taskLib.getBoolInput('cosmosDBCollectionCreateIfNotExists', true);
+
         let connectionString = ParseConnectionString(cosmosDBConnectionstring);
         let client = new CosmosDb(connectionString.hostName, connectionString.key)
 
@@ -48,12 +50,11 @@ async function run(): Promise<void> {
 
         switch(actionType) {
             case 'Create': {
-
                 await client.CreateCollection(connectionString.database, cosmosDBCollection, cosmosDBCollectionThroughput, cosmosDBPartitionKey, cosmosDBTimeToLive, indexingPolicy);
                 break;
             }
             case 'Update': {
-                await client.UpdateCollection(connectionString.database, cosmosDBCollection, cosmosDBCollectionThroughput, cosmosDBTimeToLive, indexingPolicy);
+                await client.UpdateCollection(connectionString.database, cosmosDBCollection, cosmosDBCollectionThroughput, cosmosDBPartitionKey, cosmosDBTimeToLive, indexingPolicy, cosmosDBCollectionCreateIfNotExists);
                 break;
             }
             case 'Delete': {

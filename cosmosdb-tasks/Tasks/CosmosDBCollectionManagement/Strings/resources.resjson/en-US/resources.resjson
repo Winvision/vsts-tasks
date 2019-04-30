@@ -9,6 +9,8 @@
   "loc.input.help.cosmosDBConnectionstring": "Connection string (example: \"AccountEndpoint=xyz;AccountKey=xyz;Database=xyz\")",
   "loc.input.label.cosmosDBCollection": "Collection",
   "loc.input.help.cosmosDBCollection": "Regex pattern to match one or more documents collection names",
+  "loc.input.label.cosmosDBCollectionCreateIfNotExists": "Create collection if it doesn't exists",
+  "loc.input.help.cosmosDBCollectionCreateIfNotExists": "Create the collection if it doesn't exist",
   "loc.input.label.cosmosDBCollectionThroughput": "Collection Throughput",
   "loc.input.help.cosmosDBCollectionThroughput": "Optional, default is 1000. Specifies maximum throughput of the collection",
   "loc.input.label.cosmosDBPartitionKey": "PartitionKey",
