@@ -17,6 +17,8 @@ This extension installs the following components
 ## Release notes
 * 1.0.0 - Initial release
 * 1.0.9 - Added screenshots, fixed logging if no logging file name is specified
+* 1.0.10 - Fixed issue with query escaping
+* 1.0.15 - Added option to create the collection in the update collection action
 
 ## Compatibility
 
