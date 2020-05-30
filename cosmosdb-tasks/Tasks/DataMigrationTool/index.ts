@@ -9,7 +9,8 @@ async function run() {
     try {
         taskLib.setResourcePath(path.join(__dirname, 'task.json'));
 
-        dataToolPath = await datatoolDownloader.getDataTool('1.7.0', true);
+        const versionSpec = taskLib.getInput('versionSpec', true);
+        dataToolPath = await datatoolDownloader.getDataTool(versionSpec, true);
     } catch (error) {
         console.error('ERR:' + error.message);
         taskLib.setResult(taskLib.TaskResult.Failed, '');
