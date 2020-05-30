@@ -39,7 +39,7 @@
     ],
     "inputs": [
         {
-            "name": "toolVersion",
+            "name": "versionSpec",
             "type": "string",
             "label": "dt.exe semver",
             "defaultValue": "1.7.0",
