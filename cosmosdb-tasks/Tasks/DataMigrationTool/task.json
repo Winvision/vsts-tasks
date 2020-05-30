@@ -39,6 +39,15 @@
     ],
     "inputs": [
         {
+            "name": "toolVersion",
+            "type": "string",
+            "label": "dt.exe semver",
+            "defaultValue": "1.7.0",
+            "required": true,
+            "helpMarkDown": "Version (semver) of dt.exe",
+            "groupName": "logSettings"
+        },
+        {
             "name": "logErrorLog",
             "type": "filePath",
             "label": "Errorlog",
