@@ -40,6 +40,6 @@
     "sync-request": "3.0.1",
     "typescript": "2.3.4",
     "underscore.string": "^3.3.5",
-    "validator": "3.33.0"
+    "validator": "13.7.0"
   }
 }
