@@ -1,44 +1,44 @@
 {
-  "name": "cosmosdbtaskbuild",
-  "version": "0.6.0",
-  "description": "Cosmos DB tasks for the TFS/VSTS build system",
-  "main": "make.js",
-  "directories": {
-    "doc": "docs"
-  },
-  "scripts": {
-    "build": "node make.js build",
-    "test": "node make.js test",
-    "package": "node make.js package"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Winvision/vsts-tasks"
-  },
-  "keywords": [
-    "vsts",
-    "tfs",
-    "build",
-    "release",
-    "cosmosdb"
-  ],
-  "author": "Winvision BV",
-  "devDependencies": {
-    "@types/mocha": "^5.2.5",
-    "@types/node": "^10.5.4",
-    "@types/q": "^1.5.0",
-    "adm-zip": "^0.4.13",
-    "markdown-toc": "^1.2.0",
-    "minimatch": "3.0.2",
-    "minimist": "1.2.3",
-    "mocha": "^9.2.0",
-    "node-uuid": "1.4.6",
-    "q": "1.4.1",
-    "semver": "4.3.3",
-    "shelljs": "^0.8.5",
-    "sync-request": "3.0.1",
-    "typescript": "2.3.4",
-    "underscore.string": "^3.3.5",
-    "validator": "13.7.0"
-  }
+    "name": "cosmosdbtaskbuild",
+    "version": "0.6.0",
+    "description": "Cosmos DB tasks for Azure DevOps Pipelines",
+    "main": "make.js",
+    "directories": {
+        "doc": "docs"
+    },
+    "scripts": {
+        "build": "node make.js build",
+        "test": "node make.js test",
+        "package": "node make.js package"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Winvision/vsts-tasks"
+    },
+    "keywords": [
+        "devops",
+        "pipelines",
+        "build",
+        "release",
+        "cosmosdb"
+    ],
+    "author": "Winvision BV",
+    "devDependencies": {
+        "@types/mocha": "^5.2.5",
+        "@types/node": "^10.5.4",
+        "@types/q": "^1.5.0",
+        "adm-zip": "^0.4.13",
+        "markdown-toc": "^1.2.0",
+        "minimatch": "3.0.2",
+        "minimist": "1.2.3",
+        "mocha": "2.3.3",
+        "node-uuid": "1.4.6",
+        "q": "1.4.1",
+        "semver": "4.3.3",
+        "shelljs": "^0.8.5",
+        "sync-request": "3.0.1",
+        "typescript": "2.3.4",
+        "underscore.string": "^3.3.5",
+        "validator": "13.7.0"
+    }
 }

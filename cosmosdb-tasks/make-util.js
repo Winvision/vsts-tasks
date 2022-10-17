@@ -172,7 +172,7 @@ var buildNodeTask = function (taskPath, outDir) {
     }
 
     run('tsc --outDir ' + outDir + ' --rootDir ' + taskPath);
-    cd(originalDir);
+    cd(originalDir.stdout);
 }
 exports.buildNodeTask = buildNodeTask;
 
@@ -296,12 +296,11 @@ var ensureTool = function (name, versionArgs, validate) {
     if (versionArgs) {
         var result = exec(name + ' ' + versionArgs);
         if (typeof validate == 'string') {
-            if (result.output.trim() != validate) {
+            if (result.stdout.trim() != validate) {
                 fail('expected version: ' + validate);
             }
-        }
-        else {
-            validate(result.output.trim());
+        } else {
+            validate(result.stdout.trim());
         }
     }
 

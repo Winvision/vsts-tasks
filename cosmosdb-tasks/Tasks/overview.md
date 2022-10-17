@@ -1,6 +1,6 @@
 # Create or update Azure Cosmos DB collections and documents as part of your Release
 
-Use VSTS's build/release management to manage your Azure Cosmos DB database collections. Currently the following features are available:
+Use Azure DevOps's build/release management (Pipelines) to manage your Azure Cosmos DB database collections. Currently the following features are available:
 - Delete/Create/Update collections
 - Import/Export data to/from Azure Cosmos DB 
 
