@@ -1,5 +1,5 @@
-import * as taskLib from 'vsts-task-lib/task';
-import * as tr from 'vsts-task-lib/toolrunner';
+import * as taskLib from 'azure-pipelines-task-lib/task';
+import * as tr from 'azure-pipelines-task-lib/toolrunner';
 
 export async function runDataTool(path: string) : Promise<number> {
     const dt = taskLib.tool(path);

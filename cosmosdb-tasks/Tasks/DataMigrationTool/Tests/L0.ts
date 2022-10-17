@@ -1,7 +1,7 @@
 import * as assert from 'assert';
 import * as path from 'path';
 import * as process from 'process';
-import * as mocktest from 'vsts-task-lib/mock-test';
+import * as mocktest from 'azure-pipelines-task-lib/mock-test';
 
 describe('Data Migration Tool L0 Suite', function () {
     this.timeout(parseInt(process.env.TASK_TEST_TIMEOUT) || 20000);

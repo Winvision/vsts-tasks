@@ -1,4 +1,4 @@
-import * as taskLib from 'vsts-task-lib';
+import * as taskLib from 'azure-pipelines-task-lib';
 import * as path from 'path';
 import * as datatoolDownloader from './datatooldownloader';
 import * as datatoolRunner from './datatoolrunner';

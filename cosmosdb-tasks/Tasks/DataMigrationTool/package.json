@@ -1,27 +1,27 @@
 {
-  "name": "datamigrationtool",
-  "version": "0.1.0",
-  "description": ".Net Core Installer",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Winvision/vsts-tasks.git"
-  },
-  "keywords": [
-    "VSTS",
-    "Tasks",
-    "CosmosDB"
-  ],
-  "author": "Winvision BV",
-  "license": "MIT",
-  "dependencies": {
-    "@types/mocha": "^5.2.5",
-    "@types/node": "^10.5.4",
-    "@types/q": "^1.5.0",
-    "azure-pipelines-task-lib": "^3.1.10",
-    "azure-pipelines-tool-lib": "^1.0.2"
-  }
+    "name": "datamigrationtool",
+    "version": "0.1.0",
+    "description": "Cosmos DB Data Migration Tool",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Winvision/vsts-tasks.git"
+    },
+    "keywords": [
+        "DevOps",
+        "Tasks",
+        "CosmosDB"
+    ],
+    "author": "Winvision BV",
+    "license": "MIT",
+    "dependencies": {
+        "@types/mocha": "^5.2.5",
+        "@types/node": "^10.5.4",
+        "@types/q": "^1.5.0",
+        "azure-pipelines-task-lib": "^3.1.10",
+        "azure-pipelines-tool-lib": "^1.0.2"
+    }
 }
