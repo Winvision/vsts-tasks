@@ -1,5 +1,5 @@
 import * as db from 'documentdb';
-import * as taskLib from 'vsts-task-lib/task';
+import * as taskLib from 'azure-pipelines-task-lib/task';
 
 export class CosmosDb {
     client: db.DocumentClient;

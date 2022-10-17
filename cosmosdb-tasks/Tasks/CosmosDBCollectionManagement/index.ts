@@ -1,4 +1,4 @@
-import * as taskLib from 'vsts-task-lib/task';
+import * as taskLib from 'azure-pipelines-task-lib/task';
 import * as sh from 'shelljs';
 import {CosmosDb} from './cosmosdb';
 

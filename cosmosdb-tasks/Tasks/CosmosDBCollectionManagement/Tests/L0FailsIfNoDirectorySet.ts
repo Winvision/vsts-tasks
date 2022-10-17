@@ -1,6 +1,6 @@
-import * as mockanswer from 'vsts-task-lib/mock-answer';
-import * as mockrun from 'vsts-task-lib/mock-run';
-import * as mockrunner from 'vsts-task-lib/mock-toolrunner';
+import * as mockanswer from 'azure-pipelines-task-lib/mock-answer';
+import * as mockrun from 'azure-pipelines-task-lib/mock-run';
+import * as mockrunner from 'azure-pipelines-task-lib/mock-toolrunner';
 import * as mocktool from './mock_node_modules/tool';
 import * as path from 'path';
 
@@ -18,8 +18,8 @@ tr.registerMock('fs', {
         // Mock
     }
 });
-tr.registerMock('vsts-task-lib/toolrunner', mockrunner);
-tr.registerMock('vsts-task-tool-lib/tool', mocktool);
+tr.registerMock('azure-pipelines-task-lib/toolrunner', mockrunner);
+tr.registerMock('azure-pipelines-tool-lib/tool', mocktool);
 
 // Provide answers for task mock
 const a: mockanswer.TaskLibAnswers = <mockanswer.TaskLibAnswers>{};

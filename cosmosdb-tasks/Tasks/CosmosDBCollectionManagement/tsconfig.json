@@ -4,7 +4,8 @@
         "module": "commonjs",
         "sourceMap": true,
         "moduleResolution": "node",
-        "types": [ "node", "mocha", "q" ]
+        "types": [ "node", "mocha", "q" ],
+        "skipLibCheck": true
     },
     "exclude": [
         "node_modules"
