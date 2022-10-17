@@ -5,7 +5,6 @@
 **Linux**: Install [using package manager](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager)
 
 From a terminal ensure at least node 4.2 and npm 5.6:
-
 ```bash
 $ node -v && npm -v
 v4.2.0
@@ -13,7 +12,6 @@ v4.2.0
 ```
 
 To install npm separately:
-
 ```
 [sudo] npm install npm -g
 npm -v
@@ -25,26 +23,25 @@ Note: On windows if it's still returning npm 2.x run `where npm`. Notice hits in
 # Install Dependencies
 
 Once:
-
 ```bash
 npm install
 ```
 
 # Build and Test
 
-The instructions below demonstrate how to build and test either all or a specific task.  The output will be sent to
-the `_build` directory.  You can then use the [tfx-cli](https://www.npmjs.com/package/tfx-cli) to upload this to your server for testing.
+The instructions below demonstrate how to build and test either all or a specific task. The output will be sent to
+the `_build` directory. You can then use the [tfx-cli](https://www.npmjs.com/package/tfx-cli) to upload this to your server for testing (see *Publishing*).
 
 The build will also generate a `tasks.loc.json` and an english strings file under `Strings` in your source tree. You should check these back in. Another localization process will create the other strings files.
 
-## Build All Tasks (this can take a while):
+## Build
 
+All Tasks (this can take a while):
 ``` bash
 npm run build
 ```
 
-## Build a specific task (recommended):
-
+Build a specific task (recommended):
 ```bash
 node make.js build --task DataMigrationTool
 ```
@@ -58,13 +55,14 @@ Run tests for all tasks that have been built (i.e. those that exist in the `_bui
 npm test
 ```
 
-## Update version number on all Tasks:
+## Update version number
 
+On all tasks:
 ``` bash
 node make.js bump
 ```
 
-## Update version number on a specific task (recommended):
+On a specific task (recommended):
 
 ``` bash
 node make.js bump --task DataMigrationTool
@@ -74,4 +72,31 @@ node make.js bump --task DataMigrationTool
 
 ``` bash
 npm run package
+```
+
+## Publishing
+
+Create the VSIX file:
+``` bash
+tfx extension create
+```
+
+### For testing
+
+Login to your Azure DevOps organisation:
+> Use the URL for your organisation (i.e. https://dev.azure.com/ORGANISATION) and a PAT token that is authorised to publish to that organisation.
+``` bash
+tfx login
+```
+
+Intall the created VSIX file to your organisation:
+``` bash
+tfx extension install --vsix [PATH-TO-VSIX]
+```
+
+### Marketplace
+
+Publish the VSIX file to the marketplace:
+``` bash
+TODO
 ```
