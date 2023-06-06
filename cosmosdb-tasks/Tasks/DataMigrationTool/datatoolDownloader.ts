@@ -18,7 +18,7 @@ export async function getDataTool(versionSpec: string, addToolToPath?: boolean):
         // Extract
         const extPath = await toolLib.extractZip(downloadPath);
         console.log(extPath);
-        toolPath = await toolLib.cacheDir(extPath, 'cosmosdt', versionSpec);
+        toolPath = await toolLib.cacheDir(extPath + '\\' + 'azure-documentdb-datamigrationtool-1.8.3', 'cosmosdt', versionSpec);
     }
 
     if (addToolToPath) {
