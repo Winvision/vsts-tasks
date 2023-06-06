@@ -8,6 +8,7 @@ export class CosmosDb {
         let authOptions : db.AuthOptions = {
             masterKey: key
         }
+        //create helper/constructor
         let connectionPolicy : db.ConnectionPolicy = {
             MediaReadMode:'Buffered',
             MediaRequestTimeout: 5000,
@@ -19,7 +20,8 @@ export class CosmosDb {
                 FixedRetryIntervalInMilliseconds: 500,
                 MaxWaitTimeInSeconds: 3
             },
-            DisableSSLVerification: true
+            DisableSSLVerification: false,
+            _requestWatchDogWaitTime: 0
         }
 
         this.client = new db.DocumentClient(host, authOptions, connectionPolicy);
