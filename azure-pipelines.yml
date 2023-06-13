@@ -42,3 +42,15 @@ steps:
     npx tfx-cli extension create
   workingDirectory: cosmosdb-tasks\_build\Tasks
   displayName: 'Create extension'
+
+- task: PublishAzureDevOpsExtension@4
+  inputs:
+    connectedServiceName: $(MarketPlaceConnectionTest)
+    connectTo: 'VsTeam'
+    publisherId: $(PublisherIDTest)
+    fileType: 'vsix'
+    vsixFile: 'cosmosdb-tasks\_build\Tasks\*.vsix'
+    extensionName: 'Tasks for Cosmos DB test version'
+    extensionVisibility: 'private'
+    shareWith: 'winvision'
+
