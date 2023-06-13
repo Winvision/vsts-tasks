@@ -35,4 +35,5 @@ steps:
 
 - script: |
     npm run package
+  workingDirectory: cosmosdb-tasks
   displayName: 'npm package'
