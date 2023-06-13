@@ -37,3 +37,8 @@ steps:
     npm run package
   workingDirectory: cosmosdb-tasks
   displayName: 'npm package'
+
+- script: |
+    npx tfx-cli extension create
+  workingDirectory: cosmosdb-tasks\_build\Tasks
+  displayName: 'Create extension'
