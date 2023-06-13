@@ -25,8 +25,10 @@ steps:
 
 - script: |
     npm install
+  workingDirectory: cosmosdb-tasks
   displayName: 'npm install'
 
 - script: |
     npm run build
+  workingDirectory: cosmosdb-tasks
   displayName: 'npm build'
