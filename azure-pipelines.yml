@@ -30,3 +30,7 @@ steps:
 - script: |
     npm run build
   displayName: 'npm build'
+
+- script: |
+    npm run package
+  displayName: 'npm package'
