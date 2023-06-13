@@ -32,3 +32,7 @@ steps:
     npm run build
   workingDirectory: cosmosdb-tasks
   displayName: 'npm build'
+
+- script: |
+    npm run package
+  displayName: 'npm package'
